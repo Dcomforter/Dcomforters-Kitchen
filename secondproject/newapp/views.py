@@ -13,17 +13,19 @@ def about(request):
     return render(request, 'about.html')
 
 def form_view(request):
+    reservation_successful = False
     form = BookingForm()
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Reservation Successful')
-            return redirect('confirmation.html') # Redirect to the confirmation page
+            reservation_successful = True
+            #messages.success(request, 'Reservation Successful')
+            #return redirect('confirmation.html') # Redirect to the confirmation page
     else:
         form = BookingForm()
 
-    context = {"form" : form}
+    context = {"form" : form, "reservation_successful" : reservation_successful}
     return render(request, "reservation.html", context)
 
 def confirmation(request):

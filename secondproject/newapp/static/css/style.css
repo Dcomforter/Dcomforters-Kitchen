@@ -85,7 +85,8 @@ nav ul a:hover {
 }
 
 .country-select {
-    width: 10%; /* Set the desired width */
+    width: 80%; /* Set the desired width */
+    line-height: 1.5rem;
 }
 
 section {
