@@ -1,6 +1,5 @@
 from django.db import models
-from unicodedata import name
-from django_countries.fields import CountryField
+#from django_countries.fields import CountryField
 
 # Create your models here.
 class Booking(models.Model):
@@ -10,8 +9,8 @@ class Booking(models.Model):
     email = models.EmailField(null=True)
     phone_number = models.IntegerField(null=True)
     guest_count = models.IntegerField()
-    #country = models.CharField(max_length=200)
-    country = CountryField()
+    country = models.CharField(max_length=200)
+    #country = CountryField()
     comments = models.CharField(max_length=1000)
     date = models.DateField(auto_now=True)
     time = models.DateTimeField(auto_now=True)    

@@ -84,8 +84,19 @@ nav ul a:hover {
     font-weight: bold;
 }
 
-.country-select {
-    width: 80%; /* Set the desired width */
+select.country-select {
+    width: 80%;
+    padding: .5rem 1rem;
+    line-height: 1.5rem;
+    box-sizing: border-box;
+}
+
+select.country-select::-ms-expand {
+    display: none;
+}
+
+select.country-select option {
+    padding: .5rem 1rem;
     line-height: 1.5rem;
 }
 
