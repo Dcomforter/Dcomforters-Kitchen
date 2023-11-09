@@ -8,7 +8,7 @@ class Booking(models.Model):
     sex = models.CharField(max_length=15)
     email = models.EmailField(null=True)
     #phone_number = models.IntegerField(null=True)
-    phone_number = models.CharField(max_length=10)
+    phone_number = models.CharField(max_length=10, null=True)
     guest_count = models.IntegerField()
     #country = models.CharField(max_length=200)
     country = CountryField()
