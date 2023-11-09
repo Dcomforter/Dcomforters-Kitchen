@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 from newapp.forms import BookingForm
 from newapp.models import Menu
 from django.template import loader
-from django.contrib import messages
 
 # Create your views here.
 def home(request):
@@ -20,16 +19,11 @@ def form_view(request):
         if form.is_valid():
             form.save()
             reservation_successful = True
-            #messages.success(request, 'Reservation Successful')
-            #return redirect('confirmation.html') # Redirect to the confirmation page
     else:
         form = BookingForm()
 
     context = {"form" : form, "reservation_successful" : reservation_successful}
     return render(request, "reservation.html", context)
-
-def confirmation(request):
-    return render(request, 'confirmation')
 
 def kitchen(request):
     menu = Menu.objects.all().values()
