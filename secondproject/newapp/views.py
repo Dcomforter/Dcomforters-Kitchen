@@ -11,6 +11,7 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
+# This view shows the reservation form for booking
 def form_view(request):
     reservation_successful = False
     form = BookingForm()
