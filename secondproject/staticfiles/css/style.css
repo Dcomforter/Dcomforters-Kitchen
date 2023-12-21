@@ -45,7 +45,6 @@ header img {
     height: auto;
 }
 
-
 nav {
     background-color: #020e0a;
     margin-top: 1rem;
@@ -83,6 +82,22 @@ nav ul a:hover {
     font-size: 1.6rem;
     font-weight: bold;
 }
+
+/* select.country-select {
+    width: 80%;
+    padding: .5rem 1rem;
+    line-height: 1.5rem;
+    box-sizing: border-box;
+}
+
+select.country-select::-ms-expand {
+    display: none;
+}
+
+select.country-select option {
+    padding: .5rem 1rem;
+    line-height: 1.5rem;
+} */
 
 section {
     display: flex;
@@ -170,7 +185,7 @@ input{
 
 .cta:hover {
     color:#fff;
-    background:#495E57;
+    background:#251f03;
     border: 3px solid #495E57; 
   }
 
@@ -217,7 +232,6 @@ footer p {
     padding: 0px 12px;
 
   }
-
 
   .videowrap {
 	position: relative;
