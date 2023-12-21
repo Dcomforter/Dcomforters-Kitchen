@@ -230,8 +230,16 @@ footer p {
 
   .column figure {
     padding: 0px 12px;
-
   }
+
+.menu-columns {
+    column-count: 2; /* Adjust the number of columns as needed */
+    column-gap: 20px; /* Adjust the gap between columns as needed */
+}
+
+.menu-columns p {
+    break-inside: avoid; /* Prevent individual menu items from breaking across columns */
+}
 
   .videowrap {
 	position: relative;
