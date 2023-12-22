@@ -23,7 +23,7 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 2. Navigate to the project directory:
 
     ```bash
-    cd DcomfortersKitchen
+    cd 'Dcomforters Kitchen'/secondproject
     ```
 
 3. Install dependencies using [Pipenv](https://pipenv.pypa.io/):
