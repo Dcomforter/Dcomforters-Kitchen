@@ -11,7 +11,7 @@ class Booking(models.Model):
     phone_number = models.CharField(max_length=10, null=True)
     guest_count = models.IntegerField()
     #country = models.CharField(max_length=200)
-    #country = CountryField()
+    country = CountryField()
     comments = models.CharField(max_length=1000)
     date = models.DateField(auto_now=True)
     time = models.DateTimeField(auto_now=True)    

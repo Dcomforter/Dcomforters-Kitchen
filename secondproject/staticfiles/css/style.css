@@ -83,7 +83,7 @@ nav ul a:hover {
     font-weight: bold;
 }
 
-/* select.country-select {
+select.country-select {
     width: 80%;
     padding: .5rem 1rem;
     line-height: 1.5rem;
@@ -97,7 +97,7 @@ select.country-select::-ms-expand {
 select.country-select option {
     padding: .5rem 1rem;
     line-height: 1.5rem;
-} */
+}
 
 section {
     display: flex;
