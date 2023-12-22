@@ -60,22 +60,6 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 - **Bootstrap:** Front-end framework for responsive and modern design.
 - **Pipenv:** Dependency management tool for Python projects.
 
-## Contributing
-
-If you would like to contribute to Dcomforters' Kitchen, please follow our [Contribution Guidelines](CONTRIBUTING.md).
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc.
-
----
-
-**Note:** This README template is a starting point. Customize it according to the specific details of your project.
-
-Happy cooking!
