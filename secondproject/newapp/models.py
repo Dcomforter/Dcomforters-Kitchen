@@ -33,14 +33,6 @@ class Menu(models.Model):
     prep_time = models.IntegerField(default=25)
     calories = models.IntegerField(default=1000)
     image = models.ImageField(upload_to='menu_images/', null=True, blank=True)
-
-    @property
-    def image_url(self):
-        if self.image:
-            return self.image.url
-        else:
-            # Assuming 'static' is the alias for your static files
-            return f'/static/img/menu_items/default_image.jpg'
     
     def __str__(self):
         return (
