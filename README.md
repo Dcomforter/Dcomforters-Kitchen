@@ -8,7 +8,6 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 
 - **Menu Management:** Create, edit, and delete your menus with ease.
 - **User Management:** Create, edit, delete and add users to groups.
-- **User Authentication:** Securely sign up, log in, and manage your account.
 - **Menu Exploration:** Discover a variety of menus served by the restaurant.
 - **Table Reservation:** Reserve a table for you and your family, and enjoy special offers.
 
@@ -46,12 +45,11 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 
 6. Visit `http://127.0.0.1:8000/` in your browser to access Dcomforters' Kitchen.
 
-## Usage
+## Admin Usage
 
-- **Create an Account:** Sign up to start creating and managing your recipes.
-- **Explore Recipes:** Discover a variety of recipes shared by the community.
-- **Add a Recipe:** Share your favorite recipes with others.
-- **Manage Your Profile:** Edit your profile details and preferences.
+- **Create Admin User:** Create an admin user at the console, log in to the admin page with the credentials created.
+- **Add Users and Groups:** Create groups, add roles to groups, create users and add users to groups.
+- **Create and Manage Reservations:** Create or manage existing resersations as an admin user.
 
 ## Technologies Used
 
