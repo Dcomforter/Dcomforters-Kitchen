@@ -9,15 +9,15 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 - **Menu Management:** Create, edit, and delete your menus with ease.
 - **User Management:** Create, edit, delete and add users to groups.
 - **User Authentication:** Securely sign up, log in, and manage your account.
-- **Recipe Exploration:** Discover a variety of recipes shared by the community.
-- **Ingredient Tracking:** Keep track of ingredients needed for your recipes.
+- **Menu Exploration:** Discover a variety of menus served by the restaurant.
+- **Table Reservation:** Reserve a table for you and your family, and enjoy special offers.
 
 ## Installation
 
 1. Clone the repository:
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/Dcomforter/Dcomforters-Kitchen.git
     ```
 
 2. Navigate to the project directory:
