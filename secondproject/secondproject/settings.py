@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6epzh+g=xc=i45)r_iavwsow9hqeyea_b3n)ew3mp+07=pkt7n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['.vercel.app']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'newapp',
     'django_countries',
+    #'storages'
 ]
 
 MIDDLEWARE = [
@@ -139,6 +140,27 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 # STATICFILES_DIRS = [
 #     BASE_DIR /"mystaticfiles",
 # ]
+
+# AWS Configuration
+# AWS_ACCESS_KEY_ID = 'AKIARNH65J4IWHIOOGWB'
+# AWS_SECRET_ACCESS_KEY = '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'
+
+# AWS_STORAGE_BUCKET_NAME = 'kitchen-bkt-1'
+# AWS_S3_CUSSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+# AWS_S3_FILE_OVERWRITE = False
+
+# STORAGES = {
+
+#     # Media file (image) management
+#     "default": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
+
+#     # CSS and JS file management
+#     "staticfiles": {
+#         "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+#     },
+# }
 
 # MEDIA_URL = '/media/'
 # MEDIA_ROOT = BASE_DIR / "media"  # Assuming you have a 'media' directory in your project
