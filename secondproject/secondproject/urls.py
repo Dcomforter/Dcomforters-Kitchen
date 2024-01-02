@@ -16,16 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls import url
-from django.views.static import serve
+# from django.conf import settings
+# from django.conf.urls import url
+# from django.views.static import serve
 #from newapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', views.home, name='home'),
     path('', include('newapp.urls')),
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    # url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
     # path('kitchen/', views.kitchen, name='kitchen'),
     # path('reservation/', views.form_view),
     # path('kitchen/menu_details/<int:id>', views.menu_details, name='menu_details'),  
