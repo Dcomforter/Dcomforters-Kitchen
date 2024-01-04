@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6epzh+g=xc=i45)r_iavwsow9hqeyea_b3n)ew3mp+07=pkt7n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['.vercel.app']
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
 # Application definition
@@ -137,9 +137,9 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# STATICFILES_DIRS = [
-#     BASE_DIR /"mystaticfiles",
-# ]
+STATICFILES_DIRS = [
+    BASE_DIR /"static",
+]
 
 # AWS Configuration
 # AWS_ACCESS_KEY_ID = 'AKIARNH65J4IWHIOOGWB'
