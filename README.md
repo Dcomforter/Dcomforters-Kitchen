@@ -31,9 +31,13 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
     pip install django
     ```
 
-    '''bash
+     ```bash
     pip install django-countries
-    '''
+    ```
+
+     ```bash
+    pip install whitenoise
+    ```
 
 4. Apply database migrations:
 
