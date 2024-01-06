@@ -42,6 +42,10 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 4. Apply database migrations:
 
     ```bash
+    python manage.py makemigration
+    ```
+
+    ```bash
     python manage.py migrate
     ```
 
@@ -55,7 +59,14 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 
 ## Admin Usage
 
-- **Create Admin User:** Create an admin user at the console, log in to the admin page with the credentials created.
+- **Create Admin User:** Create an admin user at the console, 
+    ```bash
+    python manage.py createsupersuser
+    ```
+    visit the link below to log in to the admin page with the credentials created above.
+    ```bash
+    http://127.0.0.1:8000/admin
+    ```
 - **Add Users and Groups:** Create groups, add roles to groups, create users and add users to groups.
 - **Create and Manage Reservations:** Create or manage existing resersations as an admin user.
 
