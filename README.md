@@ -25,11 +25,15 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
     cd 'Dcomforters Kitchen'/secondproject
     ```
 
-3. Install dependencies using [Pipenv](https://pipenv.pypa.io/):
+3. Install dependencies in the following order.
 
     ```bash
-    pipenv install
+    pip install django
     ```
+
+    '''bash
+    pip install django-countries
+    '''
 
 4. Apply database migrations:
 
