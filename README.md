@@ -42,13 +42,13 @@ Dcomforters' Kitchen is a dynamic web application built with Django, offering a 
 4. Apply database migrations:
 
     ```bash
-    pipenv run python manage.py migrate
+    python manage.py migrate
     ```
 
 5. Start the development server:
 
     ```bash
-    pipenv run python manage.py runserver
+    python manage.py runserver
     ```
 
 6. Visit `http://127.0.0.1:8000/` in your browser to access Dcomforters' Kitchen.
