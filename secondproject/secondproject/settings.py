@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-6epzh+g=xc=i45)r_iavwsow9hqeyea_b3n)ew3mp+07=pkt7n
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
+ALLOWED_HOSTS = ['Dcomforter.pythonanywhere.com']
 
 
 # Application definition
@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'secondproject.urls'
@@ -84,18 +84,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 
-    # 'default': {   
-    #     'ENGINE': 'django.db.backends.mysql',  
-    #     'NAME': 'dcomforter',   
-    #     'USER': 'root',   
-    #     'PASSWORD': 'password',   
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'dcomforter',
+    #     'USER': 'root',
+    #     'PASSWORD': 'password',
     #     #'HOST': '127.0.0.1',
-    #     'HOST': 'localhost',   
-    #     'PORT': '3306',   
-    #     'OPTIONS': {   
-    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"   
-    #     }   
-    #} 
+    #     'HOST': 'localhost',
+    #     'PORT': '3306',
+    #     'OPTIONS': {
+    #         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+    #     }
+    #}
 }
 
 
