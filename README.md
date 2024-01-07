@@ -1,4 +1,4 @@
-# Dcomforters' Kitchen(dcomforter.pythonanywhere.com) 
+# ![Dcomforters' Kitchen](dcomforter.pythonanywhere.com) 
 
 ![Dcomforters' Kitchen Logo](secondproject/newapp/static/img/DK_logo.png)
 
