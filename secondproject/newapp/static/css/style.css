@@ -155,7 +155,7 @@ input{
 
 #hero {
   background-image: linear-gradient(
-      rgba(0, 0, 0, 0.4), 
+      rgba(0, 0, 0, 0.4),
       rgba(0, 0, 0, 0.6)
     ),
     url('../img/restaurant_inside.jpg');
@@ -185,24 +185,24 @@ input{
     text-shadow: 2px 2px 4px #333333;
 }
 
-.cta { 
-    display: inline-block; 
+.cta {
+    display: inline-block;
     color: rgba(255, 255, 255, 0.9);
-    width: 200px; 
-    font-weight: bold; 
+    width: 200px;
+    font-weight: bold;
     font-size: 1.5rem;
-    padding: 8px; 
-    border: 3px solid #fff; 
-    text-align: center; 
-    outline: none; 
-    text-decoration: none; 
+    padding: 8px;
+    border: 3px solid #fff;
+    text-align: center;
+    outline: none;
+    text-decoration: none;
     margin: 1rem;
-} 
+}
 
 .cta:hover {
     color:#fff;
     background:#251f03;
-    border: 3px solid #495E57; 
+    border: 3px solid #495E57;
   }
 
   .heading-shadow {
@@ -279,14 +279,14 @@ footer p {
 
 @media (max-width: 800px) {
     section {
-        flex-direction: column;   
+        flex-direction: column;
     }
 
     .row {
         flex-direction: column;
         width: 100%;
       }
-   
+
     input{
         width: 100%;
     }
@@ -487,4 +487,52 @@ footer p {
   }
 }
 
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.menu-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.menu-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.menu-card-content {
+  padding: 1rem;
+  text-align: center;
+}
+
+.menu-card-content h3 {
+  margin: 0.5rem 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.menu-price {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #495e57;
+}
+
+.cuisine-type {
+  font-style: italic;
+  color: #888;
+  font-size: 1rem;
+}
 
