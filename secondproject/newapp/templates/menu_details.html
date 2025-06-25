@@ -25,8 +25,47 @@
         <p class="menu-description">{{ menu_item.item_description }}</p>
         <p class="menu-price-large">Price: ${{ menu_item.price }}</p>
         <a href="{% url 'reservation' %}" class="cta-button">Reserve a Table</a>
+
+        <!-- Order Modal Trigger Button -->
+        <button class="cta-button animate-bounce" id="openOrderModal">Order Now</button>
+
+        <!-- Order Modal -->
+        <div id="orderModal" class="modal">
+          <div class="modal-content">
+            <span class="close" id="closeOrderModal">&times;</span>
+            <h2>Place Your Order</h2>
+            <form method="post" action="{% url 'place_order' menu_item.id %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit" class="cta-button">Submit Order</button>
+            </form>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </article>
 </section>
+
+<script>
+  const openModalBtn = document.getElementById("openOrderModal");
+  const closeModalBtn = document.getElementById("closeOrderModal");
+  const modal = document.getElementById("orderModal");
+
+  openModalBtn.onclick = function () {
+    modal.style.display = "block";
+  };
+
+  closeModalBtn.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+</script>
+
 {% endblock %}
