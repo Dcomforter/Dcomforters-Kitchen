@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from newapp.forms import BookingForm
+from newapp.forms import BookingForm, OrderForm
 from newapp.models import Menu
 from django.template import loader
 
@@ -33,13 +33,34 @@ def kitchen(request):
 
     return HttpResponse(template.render(context, request))
 
-def menu_details(request, pk=None):
-    if pk:
-        menu_item = Menu.objects.get(pk=pk)
+def menu_details(request, item_id):
+    menu_item = get_object_or_404(Menu, id=item_id)
+    order_success = False
+
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.menu_item = menu_item
+            order.save()
+            order_success = True
     else:
-        menu_item = ''
+        form = OrderForm()
+
+    return render(request, 'menu_details.html', {
+        'menu_item': menu_item,
+        'form': form,
+        'order_success': order_success
+    })
+
+
+# def menu_details(request, pk=None):
+#     if pk:
+#         menu_item = Menu.objects.get(pk=pk)
+#     else:
+#         menu_item = ''
     
-    return render(request, 'menu_details.html', {"menu_item" : menu_item})
+#     return render(request, 'menu_details.html', {"menu_item" : menu_item})
 
 # def menu_details(request, id):
 #     menu = Menu.objects.get(id=id)
@@ -47,3 +68,19 @@ def menu_details(request, pk=None):
 #     context = {'menu_item' : menu}
 
 #     return HttpResponse(template.render(context, request))
+
+def place_order(request, item_id):
+    menu_item = get_object_or_404(Menu, id=item_id)
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.menu_item = menu_item
+            order.save()
+            return redirect('order_success')
+    else:
+        form = OrderForm()
+    return render(request, 'order_page.html', {'form': form})
+
+def order_success(request):
+    return render(request, 'order_success.html')
