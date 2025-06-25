@@ -39,8 +39,8 @@ class Menu(models.Model):
             f"{self.food_name} : "
             f"{self.cuisine} : "
             f"{str(self.price)} : "
-            f"{str(self.prep_time)} : "
-            f"{str(self.calories)}"
+            #f"{str(self.prep_time)} : "
+            #f"{str(self.calories)}"
         )
     
 class Order(models.Model):
