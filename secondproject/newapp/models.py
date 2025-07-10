@@ -39,10 +39,10 @@ class Menu(models.Model):
             f"{self.food_name} : "
             f"{self.cuisine} : "
             f"{str(self.price)} : "
-            #f"{str(self.prep_time)} : "
-            #f"{str(self.calories)}"
+            f"{str(self.prep_time)} : "
+            f"{str(self.calories)}"
         )
-    
+
 class Order(models.Model):
     menu_item = models.ForeignKey(Menu, on_delete=models.CASCADE)
     customer_name = models.CharField(max_length=100)
@@ -54,3 +54,7 @@ class Order(models.Model):
 
     def __str__(self):
         return f"{self.customer_name} - {self.menu_item.food_name}"
+    
+    @property
+    def subtotal(self):
+        return self.menu_item.price * self.quantity    
