@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Your Order Cart</h1>
+
+{% if cart_items %}
+  <ul id="cart-list">
+    {% for item in cart_items %}
+      <li data-item-id="{{ item.menu_item.id }}">
+        <strong>{{ item.menu_item.food_name }}</strong><br> 
+        Quantity: 
+        <button class="decrease-qty" data-id="{{ item.menu_item.id }}">−</button>
+        <span class="item-qty">{{ item.quantity }}</span>
+        <button class="increase-qty" data-id="{{ item.menu_item.id }}">+</button><br>
+        Notes: {{ item.notes|default:"None" }}<br>
+        Total: $<span class="item-total">{{ item.subtotal }}</span>
+        <a href="{% url 'remove_from_cart' item.menu_item.id %}">Remove</a><br><br>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <h3>Grand Total: $<span id="grand-total">
+    {{ grand_total }}
+  </span></h3>
+
+  <form method="post" action="{% url 'submit_order' %}">
+    {% csrf_token %}
+    <a href="{% url 'checkout' %}" class="cta-button animate-bounce">Proceed to Checkout</a>
+    <a href="{% url 'kitchen' %}" class="cta-button animate-bounce">Add More Items</a>
+  </form>
+{% else %}
+  <p>Your cart is empty. <a href="{% url 'kitchen' %}" class="cta-button animate-bounce">Browse Menu</a></p>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const csrftoken = getCookie('csrftoken');
+
+  document.querySelectorAll('.increase-qty, .decrease-qty').forEach(button => {
+    button.addEventListener('click', function () {
+      const itemId = this.dataset.id;
+      const action = this.classList.contains('increase-qty') ? 'increase' : 'decrease';
+
+      fetch(`/cart/update_quantity/${itemId}/`, {
+        method: 'POST',
+        headers: {
+          'X-CSRFToken': csrftoken,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ action })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network error');
+        }
+        return response.json();
+      })
+      .then(data => {
+        const itemEl = document.querySelector(`li[data-item-id="${itemId}"]`);
+        itemEl.querySelector('.item-qty').textContent = data.quantity;
+        itemEl.querySelector('.item-total').textContent = data.subtotal;
+        updateGrandTotal();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Something went wrong. Please try again.');
+      });
+    });
+  });
+
+  function updateGrandTotal() {
+    let total = 0;
+    document.querySelectorAll('.item-total').forEach(el => {
+      total += parseFloat(el.textContent);
+    });
+    document.getElementById('grand-total').textContent = total.toFixed(2);
+  }
+
+  // CSRF helper
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        cookie = cookie.trim();
+        if (cookie.startsWith(name + '=')) {
+          cookieValue = decodeURIComponent(cookie.slice(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+});
+</script>
+{% endblock %}
