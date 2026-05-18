@@ -11,7 +11,8 @@ import json
 
 # Create your views here.
 def home(request):
-    return render(request, 'index.html')
+    featured_items = Menu.objects.filter(is_featured=True)[:6]
+    return render(request, 'index.html', {'featured_items': featured_items})
 
 def about(request):
     return render(request, 'about.html')
@@ -207,4 +208,3 @@ def submit_order(request):
         })
 
     return redirect('checkout')
-
