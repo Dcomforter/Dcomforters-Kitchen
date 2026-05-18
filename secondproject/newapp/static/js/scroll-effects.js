@@ -1,17 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const elements = document.querySelectorAll(".scroll-animate");
+function initScrollAnimations() {
+  const targets = document.querySelectorAll('.scroll-animate');
 
-  function checkPosition() {
-    const windowHeight = window.innerHeight;
-    elements.forEach((el) => {
-      const positionFromTop = el.getBoundingClientRect().top;
-      if (positionFromTop - windowHeight <= -100) {
-        el.classList.add("animate-fade");
-      }
-    });
-  }
+  if (!targets.length) return;
 
-  window.addEventListener("scroll", checkPosition);
-  window.addEventListener("resize", checkPosition);
-  checkPosition();
-});
+  const observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08 }
+  );
+
+  targets.forEach(function (el) {
+    observer.observe(el);
+  });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initScrollAnimations);
+} else {
+  initScrollAnimations();
+}
