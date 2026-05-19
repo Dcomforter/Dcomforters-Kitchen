@@ -1,7 +1,18 @@
 from django import forms
 from .models import Booking, Order
 
+SEX_CHOICES = [
+    ('', '-- Select --'),
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+]
+
 class BookingForm(forms.ModelForm):
+    sex = forms.ChoiceField(
+        choices=SEX_CHOICES,
+        widget=forms.Select()
+    )
+    
     class Meta:
         model = Booking
         fields = "__all__"
@@ -13,7 +24,7 @@ class BookingForm(forms.ModelForm):
     def clean_phone_number(self):
         phone_number = self.cleaned_data['phone_number']
         if len(phone_number) != 10 or not phone_number.isdigit():
-            raise forms.ValidationError("Phone number must be 10 digits long.")
+            raise forms.ValidationError("Phone number must be numbers only and 10 digits long.")
         return phone_number
 
 class OrderForm(forms.ModelForm):
