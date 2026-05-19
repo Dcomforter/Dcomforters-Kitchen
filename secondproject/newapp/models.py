@@ -1,11 +1,16 @@
 from django.db import models
 from django_countries.fields import CountryField
 
+SEX_CHOICES = [
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+]
+
 # Create your models here.
 class Booking(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    sex = models.CharField(max_length=15)
+    sex = models.CharField(max_length=15, choices=SEX_CHOICES)
     email = models.EmailField(null=True)
     #phone_number = models.IntegerField(null=True)
     phone_number = models.CharField(max_length=10, null=True)
